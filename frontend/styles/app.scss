@@ -1,20 +1,2 @@
 @import 'reset';
 @import 'colors';
-
-
-@media only screen and (max-device-width: 480px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-body {
-  background: #eeeded;
-}
-
-.app {
-  &__container {
-    display: flex;
-    justify-content: center;
-  }
-}

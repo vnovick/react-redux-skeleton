@@ -8,7 +8,7 @@ export default ()=>{
         css: 'styles.css'
     };
     for (var key in bundle) {
-        bundle[key] = isDev ? `http://localhost:8080/dist/${bundle[key]}` : `public/assets/${bundle[key]}`;
+        bundle[key] = isDev ? `http://localhost:8080/public/assets/${bundle[key]}` : `public/assets/${bundle[key]}`;
     }
     return bundle
 }
