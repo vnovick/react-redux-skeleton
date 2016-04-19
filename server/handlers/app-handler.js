@@ -9,7 +9,7 @@ export default (req, res) => {
         console.log(getBundle())
         let output = {
             bundle: getBundle(),
-            pdo: JSON.stringify({})
+            pdo: {}
         }
         res.render('app', output);
 }

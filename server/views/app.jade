@@ -6,7 +6,7 @@ html(lang='en')
     title React Redux Skeleton
     link(href='#{bundle.css}', rel='stylesheet')
     script.
-      window.pdo = '#{pdo}'
+      window.pdo=#{JSON.stringify(pdo)}
   body
     #app
     script(src='#{bundle.js}')
