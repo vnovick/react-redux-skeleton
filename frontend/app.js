@@ -5,8 +5,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'components/appContainer';
-import appStore from 'appStore';
-
+import { createComposedStore } from 'appStore';
+import rootReducer from './reducers/rootReducer';
+const initialState = window.pdo
+const appStore = createComposedStore(rootReducer, initialState)
 ReactDOM.render(<Provider store={appStore}>
                     <AppContainer/>
                 </Provider>, document.getElementById('app'));

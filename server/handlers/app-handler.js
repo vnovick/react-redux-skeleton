@@ -2,14 +2,36 @@
  * Created by vladimirn on 11/27/15.
  */
  import _ from 'lodash';
- import getTemplate from './../utils/templateFactory';
- import getBundle from './../utils/bundler';
- const VIEW = 'app.jade';
-export default (req, res) => {
-        console.log(getBundle())
-        let output = {
-            bundle: getBundle(),
-            pdo: {}
-        }
-        res.render('app', output);
+ import getTemplate from '../utils/templateFactory';
+ import getBundle from '../utils/bundler';
+ import { renderToString } from 'react-dom/server';
+ import { createComposedStore } from '~/frontend/appStore';
+ import { AppContainer } from '~/frontend/components/appContainer';
+ import rootReducer from '~/frontend/reducers/rootReducer';
+import { Provider } from 'react-redux';
+import React from 'react';
+ function renderPage(){
+   const store = createComposedStore(rootReducer);
+
+   // Render the component to a string
+   const html = renderToString(
+     <Provider store={store}>
+       <AppContainer />
+     </Provider>
+   )
+
+   // Grab the initial state from our Redux store
+   const initialState = store.getState();
+  return {
+    bundle: getBundle(),
+    pdo: initialState,
+    reactDom: html
+  }
+ }
+
+
+
+export default (req, res, next) => {
+        req.page = renderPage()
+        next()
 }

@@ -1,10 +1,13 @@
 {
   "env": {
     "development": {
-      "presets": ["es2015", "react", "stage-2"]
+      "presets": ["es2015", "react", "stage-2"],
     },
     "production": {
       "presets": ["es2015", "react", "stage-2"]
     }
-  }
+  },
+  "plugins": [
+    "babel-root-import"
+  ]
 }

@@ -1,7 +1,12 @@
-import { appActionTypes } from 'constants/actionTypes';
+const appActionTypes = {
+  INIT: 'INIT'
+}
 
-export const setState = _ => dispatch => {
-        dispatch({
-            type: appActionTypes.SET_STATE
-        })
+export const init = _ => {
+        return {
+          type: appActionTypes.INIT,
+          state: {
+            init: true
+          }
+        }
 };

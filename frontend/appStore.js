@@ -1,9 +1,8 @@
 import thunk from 'redux-thunk';
 import { createStore, compose, applyMiddleware, } from 'redux';
 import createLogger from 'redux-logger';
-import rootReducer from 'reducers/rootReducer';
 
-const createComposedStore = compose(
+export const createComposedStore = compose(
     applyMiddleware(thunk, createLogger({
         collapsed: true,
         duration: true,
@@ -11,4 +10,3 @@ const createComposedStore = compose(
     }))
 )(createStore);
 
-export default createComposedStore(rootReducer);

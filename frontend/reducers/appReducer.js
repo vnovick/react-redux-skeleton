@@ -1,16 +1,17 @@
-import { appActionTypes } from 'constants/actionTypes';
+import { appActionTypes } from '../constants/actionTypes';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  init: false
+}
 
-function setState(state) {
-    let newState = { ...state, ...window.pdo };
-    window.pdo = "RESTRICTED CONTENT";
-    return newState;
+
+function setState(state, newState) {
+    return { ...state, ...newState };
 }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case appActionTypes.SET_STATE:
+        case appActionTypes.INIT:
             return setState(state, action.state);
     }
     return state;
