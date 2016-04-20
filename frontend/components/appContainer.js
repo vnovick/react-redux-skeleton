@@ -4,13 +4,15 @@ import { init } from '../actions/appActions';
 
 export class App extends React.Component {
     componentWillMount(){
-      this.props.init();
+      if (this.props.serverInit) {
+        this.props.init();
+      }
     }
     render(){
        return (
-            <div> Your App is here
-            </div>
-           )
+          <div> Your App is here
+          </div>
+       )
     }
 }
 const mapStateToProps = (state)=>{

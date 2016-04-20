@@ -2,7 +2,6 @@
  * Created by vladimirn on 11/27/15.
  */
  import _ from 'lodash';
- import getTemplate from '../utils/templateFactory';
  import getBundle from '../utils/bundler';
  import { renderToString } from 'react-dom/server';
  import { createComposedStore } from '~/frontend/appStore';
@@ -16,7 +15,7 @@ import React from 'react';
    // Render the component to a string
    const html = renderToString(
      <Provider store={store}>
-       <AppContainer />
+       <AppContainer serverInit={true}/>
      </Provider>
    )
 

@@ -10,5 +10,5 @@ import rootReducer from './reducers/rootReducer';
 const initialState = window.pdo
 const appStore = createComposedStore(rootReducer, initialState)
 ReactDOM.render(<Provider store={appStore}>
-                    <AppContainer/>
+                    <AppContainer shouldInit={ true }/>
                 </Provider>, document.getElementById('app'));
